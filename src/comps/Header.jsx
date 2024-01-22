@@ -5,10 +5,8 @@ const header = () => {
   return (
     <>
     <header>
-      
-      <div><TbHeartQuestion /><h1>Fancy-quiz.me</h1>
-      </div>
-      <Link to="/signIn/" >Sign In</Link>
+      <Link to="/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
+      <Link to="/login/" >Log In</Link>
     </header>
     <Outlet />
     </>

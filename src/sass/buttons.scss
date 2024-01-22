@@ -1,0 +1,58 @@
+a {
+    text-decoration: none;
+}
+header a:last-of-type {
+    background: chocolate;
+    border-radius: 30px;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: auto 0;
+    font-size: 0.6em;
+    color: white;
+    border: none;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        scale: 1.05;
+    }
+}
+
+.home a {
+    background: chocolate;
+    border-radius: 30px;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: auto 0;
+    font-size: 1.4em;
+    color: white;
+    border: none;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 40px auto;
+    &:hover {
+        scale: 1.05;
+    }
+}
+
+button {
+    background: chocolate;
+    border-radius: 30px;
+    font-size: 1em;
+    padding: 10px 50px;
+    margin: auto;
+    font-size: 0.6em;
+    color: white;
+    border: none;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        scale: 1.05;
+    }
+}

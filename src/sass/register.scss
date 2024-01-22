@@ -1,0 +1,23 @@
+.newUser {
+    background: white;
+    width: fit-content;
+    margin: 40px auto;
+    padding: 45px;
+    border-radius: 15px;
+}
+
+.newUser form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: fit-content;
+    gap: 15px;
+}
+
+.newUser form input {
+    width: 250px;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}

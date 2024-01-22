@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './sass/global.scss'
-import './sass/header.scss'
 import Header from './comps/Header' 
 import MainPage from './pages/MainPage'
-import SignIn from './pages/SignIn'
+import Login from './pages/Login'
+import './sass/global.scss'
+import Register from './pages/Register'
 
 function App() {
 
@@ -14,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route path="/" element={<MainPage />} />
-          <Route path="/signIn/" element={<SignIn />} />
+          <Route path="/login/" element={<Login />} />
+          <Route path="/register/" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>

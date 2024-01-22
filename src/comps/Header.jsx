@@ -1,11 +1,14 @@
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import { TbHeartQuestion } from "react-icons/tb"
 
 const header = () => {
   return (
     <>
     <header>
-      <TbHeartQuestion />
+      
+      <div><TbHeartQuestion /><h1>Fancy-quiz.me</h1>
+      </div>
+      <Link to="/signIn/" >Sign In</Link>
     </header>
     <Outlet />
     </>

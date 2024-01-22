@@ -1,0 +1,12 @@
+{
+    "Questions": {
+        "id": 1,
+        "question": "What is the largest planet in our solar system?",
+        "option1": "Saturn",
+        "option2": "Jupiter",
+        "option3": "Mars",
+        "option4": "Earth",
+        "answer": "Jupiter"
+    }
+    
+}

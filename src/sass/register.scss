@@ -9,6 +9,7 @@
 .newUser form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: auto;
     width: fit-content;
     gap: 15px;
@@ -20,4 +21,5 @@
     margin: 5px 0;
     border-radius: 4px;
     border: 1px solid lightgray;
+    outline: none;
 }

@@ -1,12 +1,95 @@
 {
-    "Questions": {
-        "id": 1,
-        "question": "What is the largest planet in our solar system?",
-        "option1": "Saturn",
-        "option2": "Jupiter",
-        "option3": "Mars",
-        "option4": "Earth",
-        "answer": "Jupiter"
+  "quiz": [
+    {
+      "id": "1",
+      "name": "Solar System Quiz",
+      "questions": {
+        "question1": {
+          "question": "What is the largest planet in our solar system?",
+          "option1": "Saturn",
+          "option2": "Jupiter",
+          "option3": "Mars",
+          "option4": "Earth",
+          "answer": "option2"
+        },
+        "question2": {
+          "question": "Which planet in our solar system has massive rings that are easily visible with a small telescope?",
+          "option1": "Neptune",
+          "option2": "Mercury",
+          "option3": "Saturn",
+          "option4": "Uranus",
+          "answer": "option3"
+        },
+        "question3": {
+          "question": "Mars is often called “The Red Planet,” but why does it look so red to begin with?",
+          "option1": "Mars is covered by a thick blanket of clouds that only reflect black red light",
+          "option2": "The surface is incredibly hot, causing it to glow",
+          "option3": "The surface has a lot of iron which turns orange-red when it rusts",
+          "option4": "The Martian atmosphere has lots of red dust particles",
+          "answer": "option3"
+        },
+        "question4": {
+          "question": "Did you know that there is a planet that spins on its side? Which planet is it?",
+          "option1": "Venus",
+          "option2": "Jupiter",
+          "option3": "Mars",
+          "option4": "Uranus",
+          "answer": "option4"
+        },
+        "question5": {
+          "question": "During the day this planet gets hot enough to melt lead, but at night the temperature drops to -290°F?",
+          "option1": "Mercury",
+          "option2": "Mars",
+          "option3": "Saturn",
+          "option4": "Neptune",
+          "answer": "option1"
+        }
+      }
+    },
+    {
+      "id": "2",
+      "name": "Flat-Earther test",
+      "questions": {
+        "question1": {
+          "question": "Did you know earth is flat?",
+          "option1": "Yes",
+          "option2": "No",
+          "option3": "No idea",
+          "answer": "option1"
+        }
+      }
     }
-    
+  ],
+  "Users": [
+    {
+      "id": "1",
+      "name": "testUser",
+      "age": 31
+    },
+    {
+      "id": "2",
+      "name": "testUser",
+      "age": 16
+    },
+    {
+      "id": "ad63",
+      "name": "testUser",
+      "age": 16
+    },
+    {
+      "id": "91b0",
+      "name": "Robert",
+      "age": 31
+    },
+    {
+      "id": "9fe2d55a-0b4f-508b-1331-daed7fc79770",
+      "name": "Robert",
+      "age": 99
+    },
+    {
+      "id": "1b3a66b6-74c2-e6b4-d54c-1347649033c3",
+      "name": "Robert",
+      "age": 101
+    }
+  ]
 }

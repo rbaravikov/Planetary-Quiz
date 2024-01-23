@@ -1,17 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import img from '../images/planet.jpg'
+
 
 const MainPage = () => {
-  return (
-    <div className="home">
-      <div className="greeting">
-        <div className="img"></div>
-        <h1>Hey there, welcome to Fancy-quiz.me – where casual meets quizzical!</h1>
-        <p>Dive into a world of laid-back quizzes, have some fun, and discover cool facts. Whether you're a trivia newbie or a laid-back quizzer, there's something for everyone. Ready to kick back, relax, and enjoy the Fancy-quiz.me experience?</p>
-      <Link to='/register'>SIGN UP & BEGIN!</Link>
-      </div>
-    </div>
-  )
+    const [quizData, setQuizData] = useState([])
+
+    const fetchData = async () => {
+    try {
+      const resp = await fetch('http://localhost:4400/quiz');
+      const data = await resp.json();
+      setQuizData(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    return (
+        <div className="cardsContainer">
+            {quizData && quizData.map((quiz) => (
+                <div className="card" key={quiz.id}>
+                <h2>{quiz.name}</h2>
+            </div>
+            ) )}
+            <div className="card">
+                <img src={img} alt="planet" />
+                <h2>Planetary Quiz</h2>
+                <p>solves</p>
+            </div>
+        </div>
+    )
 }
 
-export default MainPage
+    export default MainPage

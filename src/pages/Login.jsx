@@ -1,18 +1,37 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { AppContext } from '../App';
 
 const Login = () => {
+  const { setUserName } = useContext(AppContext)
   const navigate = useNavigate()
-  const [user, setUser] = useState({name:'', age:''})
+  const [user, setUser] = useState({name:'', email:''})
 
   const handleInput = (e) => {
     const { name, value } = e.target
     setUser((prevUser) => ({...prevUser,[name]: value}))
   }
 
+  const handleLogin = async () => {
+    try {
+      const resp = await fetch('http://localhost:4400/Users?name=' + user.name + '&email=' + user.email)
+  
+    if (resp.ok) {
+      const user = await resp.json()
+
+      user && user.length > 0
+      ? (setUserName(user[0].name), navigate('/mainpage/'))
+      : alert('User not found')
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    navigate('/mainpage/')
+    handleLogin()
   }
 
   return (
@@ -24,8 +43,8 @@ const Login = () => {
                 <input name="name" type="text" placeholder="Input your username here..." onInput={handleInput} />
             </label>
             <label>
-                Age:<br />
-                <input name="age" type="Number" placeholder="Input your age here..."  onInput={handleInput} />
+                email:<br />
+                <input name="email" type="email" placeholder="Input your age here..."  onInput={handleInput} />
             </label>
             <button type="submit">Sign in</button>
         </form>

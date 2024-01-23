@@ -1,26 +1,37 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './comps/Header' 
-import Welcome from './pages/Welcome'
+import Welcome from './pages/WelcomePage'
 import Login from './pages/Login'
-import MainPage from './pages/MainPage'
-import './sass/global.scss'
 import Register from './pages/Register'
-import { createContext, useState } from 'react'
+import MainPage from './pages/MainPage'
+import QuizPage from './pages/QuizPage'
+import './sass/global.scss'
+import { createContext, useEffect, useState } from 'react'
+import ErrorPage from './pages/ErrorPage'
+import UserPage from './pages/UserPage'
 export const AppContext = createContext()
 
 function App() {
   const [userName, setUserName] = useState()
-
+  const storedUserName = localStorage.getItem('user')
+  useEffect(() => {
+    if (JSON.parse(storedUserName)) {
+    setUserName(JSON.parse(storedUserName).name);
+  }}, [storedUserName])
+  
   return (
     <>
     <AppContext.Provider value={{userName, setUserName}}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Header />}>
-            <Route path="/" element={<Welcome />} />
+          <Route path="/" element={<Header userName={userName} />}>
+            <Route path="/" element={<Welcome userName={userName}/>} />
             <Route path="/login/" element={<Login setUserName={setUserName} />} />
             <Route path="/register/" element={<Register setUserName={setUserName}/>} />
             <Route path="/mainpage/" element={<MainPage />} />
+            <Route path="/quizpage/:id" element={<QuizPage />} />
+            <Route path={"/userPage/:user"} element={<UserPage setUserName={setUserName} />} />
+            <Route path="/*" element={<ErrorPage />}/>
 
           </Route>
         </Routes>

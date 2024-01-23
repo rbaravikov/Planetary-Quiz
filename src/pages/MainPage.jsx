@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
 import img from '../images/planet.jpg'
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 const MainPage = () => {
     const [quizData, setQuizData] = useState([])
+    const [quizPage, setQuizPAge] = useState(0)
+    const { id } = useParams()
+    const navigate = useNavigate()
 
     const fetchData = async () => {
     try {
@@ -14,6 +18,10 @@ const MainPage = () => {
       console.error("Error fetching data:", error);
     }
   }
+    
+    const handleClick = (id) => {
+        navigate(`/quizpage/${id}`)
+    }
 
     useEffect(() => {
         fetchData()
@@ -22,8 +30,9 @@ const MainPage = () => {
     return (
         <div className="cardsContainer">
             {quizData && quizData.map((quiz) => (
-                <div className="card" key={quiz.id}>
+                <div onClick={() =>handleClick(quiz.id)} className="card" key={quiz.id}>
                 <h2>{quiz.name}</h2>
+                <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
             </div>
             ) )}
             <div className="card">

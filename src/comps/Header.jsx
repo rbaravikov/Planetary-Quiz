@@ -1,19 +1,25 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom"
 import { TbHeartQuestion } from "react-icons/tb"
 import { AppContext } from '../App';
 import { useContext } from "react";
 
-const header = () => {
+const Header = () => {
   const { userName } = useContext(AppContext)
+
   return (
     <>
-    <header>
-      <Link to="/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
-      <Link to="/login/" >Log In</Link>
-    </header>
+     {userName && userName 
+     ? <header>
+        <Link to="/mainpage/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
+        <Link to={'/userPage/' + userName}>{userName}</Link>
+      </header> 
+    : <header>
+        <Link to="/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
+        <Link to="/login/" >Log In</Link>
+      </header>}
     <Outlet />
     </>
   )
 }
 
-export default header
+export default Header

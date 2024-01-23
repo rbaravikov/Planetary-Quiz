@@ -3,61 +3,79 @@
     {
       "id": "1",
       "name": "Solar System Quiz",
-      "questions": {
-        "question1": {
+      "questions": [
+        {
+          "id": 1,
           "question": "What is the largest planet in our solar system?",
-          "option1": "Saturn",
-          "option2": "Jupiter",
-          "option3": "Mars",
-          "option4": "Earth",
-          "answer": "option2"
+          "options": [
+            "Saturn",
+            "Jupiter",
+            "Mars",
+            "Earth"
+          ],
+          "answer": "Jupiter"
         },
-        "question2": {
+        {
+          "id": 2,
           "question": "Which planet in our solar system has massive rings that are easily visible with a small telescope?",
-          "option1": "Neptune",
-          "option2": "Mercury",
-          "option3": "Saturn",
-          "option4": "Uranus",
-          "answer": "option3"
+          "options": [
+            "Neptune",
+            "Mercury",
+            "Saturn",
+            "Uranus"
+          ],
+          "answer": "Saturn"
         },
-        "question3": {
-          "question": "Mars is often called “The Red Planet,” but why does it look so red to begin with?",
-          "option1": "Mars is covered by a thick blanket of clouds that only reflect black red light",
-          "option2": "The surface is incredibly hot, causing it to glow",
-          "option3": "The surface has a lot of iron which turns orange-red when it rusts",
-          "option4": "The Martian atmosphere has lots of red dust particles",
-          "answer": "option3"
+        {
+          "id": 3,
+          "question": "Mars is often called 'The Red Planet,' but why does it look so red to begin with?",
+          "options": [
+            "Mars is covered by a thick blanket of clouds that only reflect black red light",
+            "The surface is incredibly hot, causing it to glow",
+            "The surface has a lot of iron which turns orange-red when it rusts",
+            "The Martian atmosphere has lots of red dust particles"
+          ],
+          "answer": "The surface has a lot of iron which turns orange-red when it rusts"
         },
-        "question4": {
+        {
+          "id": 4,
           "question": "Did you know that there is a planet that spins on its side? Which planet is it?",
-          "option1": "Venus",
-          "option2": "Jupiter",
-          "option3": "Mars",
-          "option4": "Uranus",
-          "answer": "option4"
+          "options": [
+            "Venus",
+            "Jupiter",
+            "Mars",
+            "Uranus"
+          ],
+          "answer": "Uranus"
         },
-        "question5": {
+        {
+          "id": 5,
           "question": "During the day this planet gets hot enough to melt lead, but at night the temperature drops to -290°F?",
-          "option1": "Mercury",
-          "option2": "Mars",
-          "option3": "Saturn",
-          "option4": "Neptune",
-          "answer": "option1"
+          "options": [
+            "Venus",
+            "Jupiter",
+            "Mars",
+            "Uranus"
+          ],
+          "answer": "Uranus"
         }
-      }
+      ]
     },
     {
       "id": "2",
-      "name": "Flat-Earther test",
-      "questions": {
-        "question1": {
+      "name": "Flat-Earther Test",
+      "questions": [
+        {
+          "id": 1,
           "question": "Did you know earth is flat?",
-          "option1": "Yes",
-          "option2": "No",
-          "option3": "No idea",
-          "answer": "option1"
+          "options": [
+            "Yes",
+            "No",
+            "No idea"
+          ],
+          "answer": "No"
         }
-      }
+      ]
     }
   ],
   "Users": [
@@ -77,19 +95,54 @@
       "age": 16
     },
     {
-      "id": "91b0",
+      "id": "1eb00087-b0bf-48c1-2c8b-868061832287",
       "name": "Robert",
-      "age": 31
+      "age": "31"
     },
     {
-      "id": "9fe2d55a-0b4f-508b-1331-daed7fc79770",
+      "id": "40983b22-b890-af8d-6e94-90afe8b84099",
       "name": "Robert",
-      "age": 99
+      "password": "baba"
     },
     {
-      "id": "1b3a66b6-74c2-e6b4-d54c-1347649033c3",
+      "id": "13e5d0d8-4b5a-64c2-ebac-fecca0ccb466",
       "name": "Robert",
-      "age": 101
+      "password": "baba"
+    },
+    {
+      "id": "eebcf79e-1540-e652-8ec5-f75fac1752dc",
+      "name": "Robert",
+      "password": "asdda"
+    },
+    {
+      "id": "2626ec26-aab5-f45a-fa37-11ea6068fd48",
+      "name": "Mopsas",
+      "password": "asdasd"
+    },
+    {
+      "id": "ffc8e7a5-1699-61d8-a7ac-af5e72842ddb",
+      "name": "asd",
+      "password": "asdas"
+    },
+    {
+      "id": "8129b1c7-a1e8-09f3-8f8d-bcfeda954589",
+      "name": "Robert",
+      "email": "lalaal@dog.com"
+    },
+    {
+      "id": "77afbfff-9acd-4a19-7a74-ab65ef77ac91",
+      "name": "Mopsas",
+      "email": "lalaal@dog.com"
+    },
+    {
+      "id": "77afbfff-9acd-4a19-7a74-ab65ef77ac91",
+      "name": "Mopsas2",
+      "email": "lalaal@dog.com"
+    },
+    {
+      "id": "dd88427f-6545-a310-057e-ba1a0440d273",
+      "name": "Robert",
+      "email": "cacaca@dog.com"
     }
   ]
 }

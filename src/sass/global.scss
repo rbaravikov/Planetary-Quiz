@@ -4,6 +4,8 @@
 @import './buttons.scss';
 @import './register.scss';
 @import './mainPage.scss';
+@import './errorPage.scss';
+@import './quizPage.scss';
 
 * {
     margin: 0;
@@ -13,7 +15,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background: linear-gradient(to top, #4ca1af, #c4e0e5)
 }

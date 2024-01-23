@@ -1,7 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { AppContext } from '../App';
+import { useContext } from "react";
 
 const Welcome = () => {
+  const { userName } = useContext(AppContext)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if(userName) {
+      navigate('/mainpage/')
+    }
+  }, [])
+
   return (
     <div className="home">
       <div className="greeting">

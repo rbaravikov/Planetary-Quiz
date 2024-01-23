@@ -1,10 +1,9 @@
 import { useContext, useState } from "react"
-import uuid from 'react-uuid';
 import { AppContext } from '../App';
 
 const Register = () => {
   const { setUserName } = useContext(AppContext)
-  const [newUser, setNewUser] = useState({id:uuid(), name:'', age:''})
+  const [User, setUser] = useState({name:'', email:''})
   const postUser = async () => {
     try {
       const resp = await fetch('http://localhost:4400/Users', {
@@ -12,9 +11,12 @@ const Register = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newUser)
+        body: JSON.stringify(User)
       })
-      if(resp.ok) {setUserName(newUser)}
+      if(resp.ok) {
+        localStorage.setItem('user', JSON.stringify({name: User.name}))
+        setUserName(User.name)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -22,7 +24,7 @@ const Register = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target
-    setNewUser((prevUser) => ({...prevUser,[name]: value}))
+    setUser((prevUser) => ({...prevUser,[name]: value}))
   }
 
   const handleSubmit = (e) => {
@@ -39,8 +41,8 @@ const Register = () => {
                 <input name="name" type="text" placeholder="Input your username here..." onInput={handleInput} />
             </label>
             <label>
-                Age:<br />
-                <input name="age" type="Number" placeholder="Input your age here..."  onInput={handleInput} />
+                email:<br />
+                <input name="email" type="email" placeholder="Input your email here..."  onInput={handleInput} />
             </label>
             <button type="submit">Create user</button>
         </form>

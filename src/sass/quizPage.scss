@@ -1,0 +1,66 @@
+.quizContainer {
+    background: white;
+    max-width: 80%;
+    margin: 40px auto;
+    border-radius: 10px;
+    min-height: 400px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.242);
+    
+
+    .startNotification {
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        gap: 20px;
+        border-radius: 10px;
+
+        button {
+            margin: 0 auto;
+        }
+    }
+
+    .back {
+        background: black;
+        width: fit-content;
+        padding: 5px 10px;
+        &:hover {
+            background: chocolate;
+        }
+    }
+
+}
+    .questionTab {
+        min-height: 400px;
+        background: #f9fafd;
+        border-radius: 10px;
+
+        .header {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px 10px 0 0;
+            background: white;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.242);
+        }
+
+        .questionBody {
+            min-height: fit-content;
+            padding: 20px;
+
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .options {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust the fixed width (150px) as needed */
+                gap: 10px;
+            }
+            
+
+        }
+}

@@ -8,6 +8,7 @@ const Welcome = () => {
   const navigate = useNavigate()
   useEffect(() => {
     if(userName) {
+      console.log(userName)
       navigate('/mainpage/')
     }
   }, [])

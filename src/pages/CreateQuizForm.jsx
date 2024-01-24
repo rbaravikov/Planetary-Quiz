@@ -9,6 +9,7 @@ const NewQuizForm = () => {
     name: "",
     img: "",
     subject: "",
+    questons: [],
     creatorId: userName.id
     }
   ) 

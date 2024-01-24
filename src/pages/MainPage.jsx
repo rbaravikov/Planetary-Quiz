@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const MainPage = () => {
     const [quizData, setQuizData] = useState([])
-    const [quizPage, setQuizPAge] = useState(0)
     const { id } = useParams()
     const navigate = useNavigate()
 

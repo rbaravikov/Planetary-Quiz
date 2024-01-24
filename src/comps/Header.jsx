@@ -11,7 +11,7 @@ const Header = () => {
      {userName && userName 
      ? <header>
         <Link to="/mainpage/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
-        <Link to={'/userPage/' + userName}>{userName}</Link>
+        <Link to={'/userPage/' + userName.name}>{userName.name}</Link>
       </header> 
     : <header>
         <Link to="/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>

@@ -10,15 +10,18 @@ import { createContext, useEffect, useState } from 'react'
 import ErrorPage from './pages/ErrorPage'
 import UserPage from './pages/UserPage'
 import CreateQuizForm from './pages/CreateQuizForm'
+import QuizEditPage from './pages/QuizEditPage'
 export const AppContext = createContext()
 
 function App() {
   const [userName, setUserName] = useState('')
   const storedUserName = localStorage.getItem('user')
   useEffect(() => {
-    if (storedUserName && JSON.parse(storedUserName)) {
-    setUserName(JSON.parse(storedUserName));
-  }}, [storedUserName])
+    if (storedUserName) {
+      const parsedUser = JSON.parse(storedUserName);
+      setUserName({ name: parsedUser.name, id: parsedUser.id })
+    }
+  }, [storedUserName]);
   
   return (
     <>
@@ -31,8 +34,9 @@ function App() {
             <Route path="/register/" element={<Register setUserName={setUserName}/>} />
             <Route path="/mainpage/" element={<MainPage />} />
             <Route path="/quizpage/:id" element={<QuizPage />} />
-            <Route path={"/userpage/:user"} element={<UserPage setUserName={setUserName} />} />
-            <Route path={"/createquiz"} element={<CreateQuizForm /> } />
+            <Route path={"/userpage/:user"} element={<UserPage userName={userName} setUserName={setUserName} />} />
+            <Route path={"/createquiz"} element={<CreateQuizForm userName={userName} /> } />
+            <Route path={"/editquiz/:quizid"} element={<QuizEditPage userName={userName} /> } />
             <Route path="/*" element={<ErrorPage />}/>
 
           </Route>

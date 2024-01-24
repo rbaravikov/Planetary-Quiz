@@ -1,9 +1,11 @@
 import { useContext, useState } from "react"
 import { AppContext } from '../App';
+import uuid from "react-uuid";
 
 const Register = () => {
   const { setUserName } = useContext(AppContext)
-  const [User, setUser] = useState({name:'', email:''})
+  const [User, setUser] = useState(() => ({ name: '', email: '', id: uuid() }));
+
   const postUser = async () => {
     try {
       const resp = await fetch('http://localhost:4400/Users', {
@@ -13,8 +15,9 @@ const Register = () => {
         },
         body: JSON.stringify(User)
       })
+        
       if(resp.ok) {
-        localStorage.setItem('user', JSON.stringify(User.name))
+        localStorage.setItem('user', JSON.stringify({ name: User.name, id: User.id }));
         setUserName(User.name)
       }
     } catch (error) {

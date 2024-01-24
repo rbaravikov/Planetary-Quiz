@@ -14,7 +14,7 @@ const Register = () => {
         body: JSON.stringify(User)
       })
       if(resp.ok) {
-        localStorage.setItem('user', JSON.stringify({name: User.name}))
+        localStorage.setItem('user', JSON.stringify(User.name))
         setUserName(User.name)
       }
     } catch (error) {

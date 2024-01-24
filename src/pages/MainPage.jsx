@@ -11,9 +11,9 @@ const MainPage = () => {
 
     const fetchData = async () => {
     try {
-      const resp = await fetch('http://localhost:4400/quiz');
-      const data = await resp.json();
-      setQuizData(data);
+      const resp = await fetch('http://localhost:4400/quiz')
+      const data = await resp.json()
+      setQuizData(data)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -31,15 +31,11 @@ const MainPage = () => {
         <div className="cardsContainer">
             {quizData && quizData.map((quiz) => (
                 <div onClick={() =>handleClick(quiz.id)} className="card" key={quiz.id}>
-                <h2>{quiz.name}</h2>
-                <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
+                    <img src={quiz.img} alt="planet" />
+                    <h2>{quiz.name}</h2>
+                    <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
             </div>
             ) )}
-            <div className="card">
-                <img src={img} alt="planet" />
-                <h2>Planetary Quiz</h2>
-                <p>solves</p>
-            </div>
         </div>
     )
 }

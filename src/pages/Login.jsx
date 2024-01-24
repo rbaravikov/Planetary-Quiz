@@ -20,7 +20,7 @@ const Login = () => {
       const user = await resp.json()
 
       user && user.length > 0
-      ? (setUserName(user[0].name), navigate('/mainpage/'))
+      ? (setUserName(user[0].name), navigate('/mainpage/'), localStorage.setItem('user', JSON.stringify(user[0].name)))
       : alert('User not found')
       }
     } catch (error) {

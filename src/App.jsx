@@ -9,14 +9,15 @@ import './sass/global.scss'
 import { createContext, useEffect, useState } from 'react'
 import ErrorPage from './pages/ErrorPage'
 import UserPage from './pages/UserPage'
+import CreateQuizForm from './pages/CreateQuizForm'
 export const AppContext = createContext()
 
 function App() {
-  const [userName, setUserName] = useState()
+  const [userName, setUserName] = useState('')
   const storedUserName = localStorage.getItem('user')
   useEffect(() => {
-    if (JSON.parse(storedUserName)) {
-    setUserName(JSON.parse(storedUserName).name);
+    if (storedUserName && JSON.parse(storedUserName)) {
+    setUserName(JSON.parse(storedUserName));
   }}, [storedUserName])
   
   return (
@@ -30,7 +31,8 @@ function App() {
             <Route path="/register/" element={<Register setUserName={setUserName}/>} />
             <Route path="/mainpage/" element={<MainPage />} />
             <Route path="/quizpage/:id" element={<QuizPage />} />
-            <Route path={"/userPage/:user"} element={<UserPage setUserName={setUserName} />} />
+            <Route path={"/userpage/:user"} element={<UserPage setUserName={setUserName} />} />
+            <Route path={"/createquiz"} element={<CreateQuizForm /> } />
             <Route path="/*" element={<ErrorPage />}/>
 
           </Route>

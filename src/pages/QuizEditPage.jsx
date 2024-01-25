@@ -8,137 +8,73 @@ const QuizEditPage = () => {
     const { userName } = useContext(AppContext)
     const [currentTab, setCurrentTab] = useState(1)
     const [totalQuestions, setTotalQuestions] = useState(1)
-    const [option, setOption] = useState([])
-    const [question, setQuestion] = useState('')
-    const [answer, setAnswer] = useState('')
-    const [quizData, setQuizData] = useState({})
-    const navigate = useNavigate()
-    const [updatedquestions, setUpdatedquestions] = useState()
-    const [quizVariables, setQuizVariables] = useState([{
-        id: currentTab,
-        question: '',
-        options: [],
-        answer: ''
-    }])
     
+    const [quizData, setQuizData] = useState({})
+    const [question, setQuestion] = useState('')
+    const [optionsArr, setOptionsArr] = useState([])
+    const [answer, setAnswer] = useState('')
+    const navigate = useNavigate()
+
+    // Atsisiunčiam klausimyno duomenis ir išsaugome quizData
     const fetchData = async () => {
         try {
         const resp = await fetch('http://localhost:4400/quiz/' + quizid)
         const data = await resp.json()
         setQuizData(data)
-        } catch (error) {
-            console.error("Error fetching data:", error);
+        } catch (err) {
+            console.err(err);
         }
     }
     
     useEffect(() => {
         fetchData()
     }, [])
-
-    useEffect(() => {
-        if(quizData.options) {
-            setQuizVariables(quizData.options)}
-    }, [quizData.options])
     
-    const addQuestion = () => {
-        saveQuestions()
+    // Jei atsiųstas quizData turi klausimus juos perduodam į formos inputus, taip pat naviguojant tarp puslapių atnaujiname inputus
+    
+    useEffect(() => {
+        if(quizData.questions && quizData.questions.length >= currentTab) {
+            setTotalQuestions(quizData.questions[currentTab - 1].options.length)
+            setQuestion(quizData.questions[currentTab - 1].question)
+            setAnswer(quizData.questions[currentTab - 1].answer)
+            setOptionsArr(quizData.questions[currentTab - 1].options)}
+        else {
+            setQuestion('')
+            setAnswer('')
+            setOptionsArr([])
+            setTotalQuestions(1)
+        }
+    }, [quizData.questions, currentTab])
+
+    // Navigavija tarp klausimų, naudoju .then nes kartais veikia, o kartais ne. (man atrodo) tab'ai keičiasi greičiau, nei data atsinaujina...?
+    const nextQuestion = () => {
+        updateQuizData()
         setCurrentTab((prevValue) => prevValue + 1)
     }
     
     const prevQuestion = () => {
-        saveQuestions()
-        currentTab > 1 ? setCurrentTab((prevValue) => prevValue - 1) : navigate('/userPage/' + userName.name)
-    }
-    
-    // ==========================================================================
+        updateQuizData()
         
-    const saveQuestions = () => {
-        const objectId = quizVariables.findIndex(object => object.id === currentTab);
-        const newQuestion = {
-            id: currentTab,
+        currentTab > 1 ?
+        setCurrentTab((prevValue) => prevValue - 1) :
+        navigate('/userPage/' + userName.name)
+    }
+    // ========================
+
+    const updateQuizData = () => {
+        const updatedQuiz = {...quizData}
+        updatedQuiz.questions[currentTab - 1] = {
+            id : currentTab,
             question: question,
-            options: [...option],
+            options: [...optionsArr],
             answer: answer
         }
-    
-        if (objectId !== -1) {
-            const newArr = quizVariables.map(obj => (obj.id === currentTab ? newQuestion : obj));
-            setQuizVariables(newArr);
-        } else {
-            setQuizVariables(prevArray => [...prevArray, newQuestion]);
-        }
-        
-        setQuestion('')
-        setAnswer('')
-        setOption([])
-        setTotalQuestions(1)
+        setQuizData(updatedQuiz)
     }
-
-    // ==========================================================================
-    const patchData = async () => {
-        try {
-            const resp = await fetch('http://localhost:4400/quiz/' + quizid, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedquestions),
-            });
-            const data = await resp.json()
-            if (resp.ok) {
-            console.log(data)
-            } else {
-            console.error('Failed to update data:', response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error('Error during PATCH request:', error);
-        }
-    }
-
-    useEffect(() => {
-
-    }, [updatedquestions])
-    
-    const updateQuiz = () => {
-        saveQuestions()
-        const updatedQuiz = {
-            ...quizData,
-            questions : quizVariables.map(( {id, question, options, answer} ) => ({
-            id,
-            question,
-            options: [...options],
-            answer,
-        }))
-        }
-        setUpdatedquestions(updatedQuiz)
-    }
-
-    useEffect(() => {
-        patchData()
-    }, [updatedquestions])
-    
-    useEffect(() => {
-        const currentQuestion = quizVariables[currentTab - 1];
-    
-        if (currentQuestion) {
-            setQuestion(currentQuestion.question || '');
-            setAnswer(currentQuestion.answer || '');
-            setOption(currentQuestion.options || []);
-        }
-    }, [quizVariables, currentTab])
     
     const handleSubmit = (e) => {
         e.preventDefault()
     }
-    
-    
-    const handleOptionChange = (i, value) => {
-        setOption((prevValue) => {
-            const newOption = [...prevValue]
-            newOption[i] = value
-            return newOption
-        })
-      }
 
   return (
     <form className="newQuizForm" onSubmit={handleSubmit}>
@@ -146,7 +82,7 @@ const QuizEditPage = () => {
         <h1>{quizData.name}</h1>
         <h2>Add your question #{currentTab}</h2>
         <label>
-            Question:<br />
+            Enter your question:<br />
             <input onChange={(e) => setQuestion(e.target.value)} value={question} type="text" placeholder="Ex. what is most common cat fur pattern?" />
         </label>
         <label>
@@ -155,14 +91,17 @@ const QuizEditPage = () => {
         </label>
         {<RenderOptions 
         totalQuestions={totalQuestions}
-        option={option}
-        handleOptionChange={handleOptionChange}
+        optionsArr={optionsArr}
+        setOptionsArr={setOptionsArr}
+        setTotalQuestions={setTotalQuestions}
         />}
-        {<button onClick={() => setTotalQuestions((prevValue) => (prevValue + 1))} >Add another incorrect option</button>}
-        <button  onClick={addQuestion} >Lets add next question</button>
-        <button onClick={prevQuestion}>Previous tab</button>
+        <div className="buttonsContainer">
+            {<button onClick={() => setTotalQuestions((prevValue) => (prevValue + 1))} >Add another incorrect option</button>}
+            <button  onClick={nextQuestion} >Go to next question</button>
+            <button onClick={prevQuestion}>Previous tab</button>
+            <button >Finish editing</button>
+        </div>
         </>
-        <button onClick={updateQuiz}>Finish editing</button>
     </form>
   )
 }

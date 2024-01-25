@@ -1,0 +1,50 @@
+.newQuizForm {
+    background: white;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h1 {
+        color: chocolate;   
+    }
+
+    input {
+        height: 2em;
+        border-radius: 4px;
+        outline: none;
+        padding: 5px 10px;
+        border: 1px solid chocolate;
+        width: 100%;
+    }
+
+    label {
+        position: relative;
+        min-width: 60%;
+        margin: auto;
+        
+        svg {
+            position: absolute;
+            color: #555;
+            right: 3px;
+            bottom: 3px;
+        }
+    }
+
+    .buttonsContainer {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        button {
+            width: 45%;
+            height: min-content;
+        }
+    }
+
+}

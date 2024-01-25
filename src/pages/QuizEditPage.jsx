@@ -12,6 +12,7 @@ const QuizEditPage = () => {
     const [answer, setAnswer] = useState('')
     const [quizData, setQuizData] = useState({})
     const navigate = useNavigate()
+    const [updatedquestions, setUpdatedquestions] = useState()
     const [quizVariables, setQuizVariables] = useState([{
         id: currentTab,
         question: '',
@@ -32,22 +33,16 @@ const QuizEditPage = () => {
     useEffect(() => {
         fetchData()
     }, [])
+
+    useEffect(() => {
+        if(quizData.options) {setQuizVariables(quizData.options)}
+    }, [quizData])
     
-    const handleQuestionInput = (e) => {
-        setQuestion(e.target.value)
-    }
-
-    const handleAnswerInput = (e) => {
-        setAnswer(e.target.value)
-    }
-
     const addQuestion = () => {
-        saveQuestion()
+        saveQuestions()
+        setCurrentTab((prevValue) => prevValue + 1)
     }
     
-    const addOption = () => {
-        setTotalQuestions((prevValue) => (prevValue + 1))
-    }
     
     // ==========================================================================
     
@@ -71,7 +66,7 @@ const QuizEditPage = () => {
         return <>{options}</>;
     }
 
-    const saveQuestion = () => {
+    const saveQuestions = () => {
         const objectId = quizVariables.findIndex(object => object.id === currentTab);
         const newQuestion = {
             id: currentTab,
@@ -91,12 +86,46 @@ const QuizEditPage = () => {
         setAnswer('')
         setOption([])
         setTotalQuestions(1)
-        setCurrentTab((prevValue) => prevValue + 1)
     }
 
     // ==========================================================================
+    const patchData = async () => {
+        try {
+            const resp = await fetch('http://localhost:4400/quiz/' + quizid, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(quizVariables),
+            });
+
+            if (resp.ok) {
+            console.log('Quiz updated successfully!');
+            } else {
+            console.error('Failed to update data:', response.status, response.statusText);
+            }
+        } catch (error) {
+            console.error('Error during PATCH request:', error);
+        }
+    }
+
+    
+    const updateQuiz = () => {
+        const updatedQuiz = {
+            ...quizData,
+            questions : quizVariables.map(( {id, question, options, answer} ) => ({
+            id,
+            question,
+            options: [...options],
+            answer,
+        }))
+        }
+        setUpdatedquestions(updatedQuiz)
+        console.log(updatedquestions)
+    }
     
     const prevQuestion = () => {
+        saveQuestions()
         currentTab > 1 ? setCurrentTab((prevValue) => prevValue - 1) : navigate('/userPage/' + userName.name)
     }
 
@@ -130,17 +159,18 @@ const QuizEditPage = () => {
         <h2>Add your question #{currentTab}</h2>
         <label>
             Question:<br />
-            <input onChange={handleQuestionInput} value={question} type="text" placeholder="Ex. what is most common cat fur pattern?" />
+            <input onChange={(e) => setQuestion(e.target.value)} value={question} type="text" placeholder="Ex. what is most common cat fur pattern?" />
         </label>
         <label>
             Correct answer:<br />
-            <input onChange={handleAnswerInput} value={answer} type="text" placeholder="Tabby" />
+            <input onChange={(e) => setAnswer(e.target.value)} value={answer} type="text" placeholder="Tabby" />
         </label>
         {renderOptions()}
-        {<button onClick={addOption} >Add another incorrect option</button>}
+        {<button onClick={() => setTotalQuestions((prevValue) => (prevValue + 1))} >Add another incorrect option</button>}
         <button  onClick={addQuestion} >Lets add next question</button>
         <button onClick={prevQuestion}>Previous tab</button>
         </>
+        <button onClick={updateQuiz}>Save quiz</button>
     </form>
   )
 }

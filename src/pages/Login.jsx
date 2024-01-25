@@ -43,11 +43,11 @@ const Login = () => {
             <h1>Welcome back, remind us your name</h1>
             <label>
                 User:<br />
-                <input name="name" type="text" placeholder="Input your username here..." onInput={handleInput} />
+                <input name="name" type="text" placeholder="Input your username here..." onInput={handleInput} required />
             </label>
             <label>
                 email:<br />
-                <input name="email" type="email" placeholder="Input your age here..."  onInput={handleInput} />
+                <input name="email" type="email" placeholder="Input your age here..."  onInput={handleInput} required />
             </label>
             <button type="submit">Sign in</button>
         </form>

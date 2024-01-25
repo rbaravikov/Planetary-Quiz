@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { AppContext } from "../App"
+import RenderOptions from "../components/EditQuiz/RenderOptions"
 
 const QuizEditPage = () => {
     const { quizid } = useParams()
@@ -22,9 +23,9 @@ const QuizEditPage = () => {
     
     const fetchData = async () => {
         try {
-            const resp = await fetch('http://localhost:4400/quiz/' + quizid)
-          const data = await resp.json()
-          setQuizData(data)
+        const resp = await fetch('http://localhost:4400/quiz/' + quizid)
+        const data = await resp.json()
+        setQuizData(data)
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -35,37 +36,22 @@ const QuizEditPage = () => {
     }, [])
 
     useEffect(() => {
-        if(quizData.options) {setQuizVariables(quizData.options)}
-    }, [quizData])
+        if(quizData.options) {
+            setQuizVariables(quizData.options)}
+    }, [quizData.options])
     
     const addQuestion = () => {
         saveQuestions()
         setCurrentTab((prevValue) => prevValue + 1)
     }
     
+    const prevQuestion = () => {
+        saveQuestions()
+        currentTab > 1 ? setCurrentTab((prevValue) => prevValue - 1) : navigate('/userPage/' + userName.name)
+    }
     
     // ==========================================================================
-    
-    useEffect(() => {
-        console.log(quizVariables)
-    }, [quizVariables])
-    
-    
-    const renderOptions = () => {
-        const options = []
         
-        for (let i = 0; i < totalQuestions; i++) {
-            options.push(
-            <label key={i}>
-                Incorrect answer {i + 1}:<br />
-                <input type="text" value={option[i] || ''} placeholder={`Ex. Orange cat`} onChange={(e) => handleOptionChange(i, e.target.value)}
-                />
-            </label>
-            )
-        }
-        return <>{options}</>;
-    }
-
     const saveQuestions = () => {
         const objectId = quizVariables.findIndex(object => object.id === currentTab);
         const newQuestion = {
@@ -81,7 +67,7 @@ const QuizEditPage = () => {
         } else {
             setQuizVariables(prevArray => [...prevArray, newQuestion]);
         }
-
+        
         setQuestion('')
         setAnswer('')
         setOption([])
@@ -96,11 +82,11 @@ const QuizEditPage = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(quizVariables),
+            body: JSON.stringify(updatedquestions),
             });
-
+            const data = await resp.json()
             if (resp.ok) {
-            console.log('Quiz updated successfully!');
+            console.log(data)
             } else {
             console.error('Failed to update data:', response.status, response.statusText);
             }
@@ -109,8 +95,12 @@ const QuizEditPage = () => {
         }
     }
 
+    useEffect(() => {
+
+    }, [updatedquestions])
     
     const updateQuiz = () => {
+        saveQuestions()
         const updatedQuiz = {
             ...quizData,
             questions : quizVariables.map(( {id, question, options, answer} ) => ({
@@ -121,14 +111,12 @@ const QuizEditPage = () => {
         }))
         }
         setUpdatedquestions(updatedQuiz)
-        console.log(updatedquestions)
-    }
-    
-    const prevQuestion = () => {
-        saveQuestions()
-        currentTab > 1 ? setCurrentTab((prevValue) => prevValue - 1) : navigate('/userPage/' + userName.name)
     }
 
+    useEffect(() => {
+        patchData()
+    }, [updatedquestions])
+    
     useEffect(() => {
         const currentQuestion = quizVariables[currentTab - 1];
     
@@ -165,12 +153,16 @@ const QuizEditPage = () => {
             Correct answer:<br />
             <input onChange={(e) => setAnswer(e.target.value)} value={answer} type="text" placeholder="Tabby" />
         </label>
-        {renderOptions()}
+        {<RenderOptions 
+        totalQuestions={totalQuestions}
+        option={option}
+        handleOptionChange={handleOptionChange}
+        />}
         {<button onClick={() => setTotalQuestions((prevValue) => (prevValue + 1))} >Add another incorrect option</button>}
         <button  onClick={addQuestion} >Lets add next question</button>
         <button onClick={prevQuestion}>Previous tab</button>
         </>
-        <button onClick={updateQuiz}>Save quiz</button>
+        <button onClick={updateQuiz}>Finish editing</button>
     </form>
   )
 }

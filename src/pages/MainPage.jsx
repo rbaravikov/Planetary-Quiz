@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import img from '../images/planet.jpg'
 import { useNavigate, useParams } from 'react-router-dom'
 
 

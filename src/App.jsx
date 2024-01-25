@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Header from './comps/Header' 
+import Header from './components/Header' 
 import Welcome from './pages/WelcomePage'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -11,6 +11,7 @@ import ErrorPage from './pages/ErrorPage'
 import UserPage from './pages/UserPage'
 import CreateQuizForm from './pages/CreateQuizForm'
 import QuizEditPage from './pages/QuizEditPage'
+import './images/questionmark.png'
 export const AppContext = createContext()
 
 function App() {

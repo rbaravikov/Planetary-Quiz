@@ -1,17 +1,23 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../App"
 import { useNavigate } from "react-router-dom"
 
 const NewQuizForm = () => {
   const { userName } = useContext(AppContext)
+  const [defaultImg, setDefaultImg] = useState(false)
+  const defaultUrl = '/src/images/questionmark.png'
   const navigate = useNavigate()
   const [newQuiz, setNewQuiz] = useState({
     name: "",
     img: "",
     subject: "",
-    creatorId: userName.id
+    creatorId: ""
     }
   ) 
+
+  useEffect(() => {
+    setNewQuiz((prevValue) => ({...prevValue, creatorId: userName.id }))
+  }, [userName])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -32,7 +38,7 @@ const NewQuizForm = () => {
       const data = await resp.json();
 
       if (resp.ok) {
-        navigate('/userPage/' + userName.name)
+        navigate(`/editquiz/${data.id}`)
       }
     } catch (err) {
       console.log(err)
@@ -48,24 +54,55 @@ const NewQuizForm = () => {
       }
     })
   }
+
+  const ShowImageInput = () => {
+    return (
+      !defaultImg ? (
+        <label>
+          You can also paste some image URL from the internet:<br />
+          <input name="img" type="text" placeholder="Paste that link here" onInput={addQuiz} required />
+        </label>
+      ) : (
+        <h2>Okay, we will use the default image :)</h2>
+      )
+    );
+  };
+
+  const ShowButton = () => {
+    if(!defaultImg)
+    return <label>
+      <button onClick={() => {
+        setDefaultImg(true);
+        setNewQuiz((prevValue) => ({
+          ...prevValue,
+          img: defaultUrl
+        }))
+        }} >I want to use default image instead</button>
+      </label>
+
+    if (newQuiz.name && newQuiz.subject && newQuiz.img) { return (
+      <label >
+        <h1>
+      And thats it your brand new quiz is ready, all thats left is to add questions to it :)
+        </h1>
+      <button>Lets go!</button>
+      </label>
+      )}
+  }
   
   return (
     <form className="newQuizForm" onSubmit={handleSubmit}>
-        <h1>Lets make our own quiz!</h1>
+        <h1>Lets make our own quiz its simle!</h1>
         <label>
-            Quiz name:<br />
-            <input name="name" type="text" placeholder="enter name for your quiz here..." onInput={addQuiz} />
+            <h3>First we enter quiz name:</h3><br />
+            <input name="name" type="text" placeholder="Enter name for your quiz here..." onInput={addQuiz} required />
         </label>
         <label>
-            Topic:<br />
-            <input name="subject" type="text" placeholder="What your quiz is about?" onInput={addQuiz} />
+            Next, lets deside what it is about:<br />
+            <input name="subject" type="text" placeholder="What your quiz is about?" onInput={addQuiz} required />
         </label>
-        <label>
-            Image:<br />
-            <input name="img" type="url" placeholder="Put img url here" onInput={addQuiz} />
-        </label>
-
-        <button>Lets go!</button>
+        <ShowImageInput />
+        <ShowButton />
         </form>
   )
 }

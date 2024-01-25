@@ -43,7 +43,6 @@ const UserPage = () => {
             </div>
             ) )}
         </div>
-    <Link to={'/createquiz'} >Create Your Own Quiz</Link>
     <button onClick={handleClick} >Log Out</button>
     </>
   )

@@ -5,6 +5,11 @@ header {
     border-bottom: 1px solid chocolate;
     display: flex;
     justify-content: space-between;
+
+    .headerNav {
+        display: flex;
+        gap: 8px;
+    }
 }
 
 header svg {

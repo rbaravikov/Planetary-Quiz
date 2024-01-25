@@ -1,7 +1,8 @@
 a {
     text-decoration: none;
 }
-header a:last-of-type {
+
+header div a {
     background: chocolate;
     border-radius: 30px;
     font-size: 1em;
@@ -14,6 +15,7 @@ header a:last-of-type {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     &:hover {
         scale: 1.05;
     }

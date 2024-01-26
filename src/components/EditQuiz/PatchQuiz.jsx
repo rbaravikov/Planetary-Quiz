@@ -1,4 +1,4 @@
-const PatchQuiz = async (quizData, quizid) => {
+const PatchQuiz = async (quizData, quizid, navigate, navigateTo) => {
     try {
       const apiUrl = ('http://localhost:4400/quiz/' + quizid)
   
@@ -10,7 +10,7 @@ const PatchQuiz = async (quizData, quizid) => {
         body: JSON.stringify(quizData),
       })
       
-      console.log('Success')
+      navigate(navigateTo)
     } catch (err) {
       console.log(err);
     }

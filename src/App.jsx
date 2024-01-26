@@ -12,6 +12,8 @@ import UserPage from './pages/UserPage'
 import CreateQuizForm from './pages/CreateQuizForm'
 import QuizEditPage from './pages/QuizEditPage'
 import './images/questionmark.png'
+import FinishQuizEdit from './pages/FinishQuizEdit'
+import InitQuizEdit from './pages/InitQuizEdit'
 export const AppContext = createContext()
 
 function App() {
@@ -37,9 +39,10 @@ function App() {
             <Route path="/quizpage/:id" element={<QuizPage />} />
             <Route path={"/userpage/:user"} element={<UserPage userName={userName} setUserName={setUserName} />} />
             <Route path={"/createquiz"} element={<CreateQuizForm userName={userName} /> } />
+            <Route path={"/initquizedit/:quizid"} element={<InitQuizEdit userName={userName} /> } />
             <Route path={"/editquiz/:quizid"} element={<QuizEditPage userName={userName} /> } />
+            <Route path={"/editquizfin/:quizid"} element={<FinishQuizEdit userName={userName}/>}/>
             <Route path="/*" element={<ErrorPage />}/>
-
           </Route>
         </Routes>
       </BrowserRouter>

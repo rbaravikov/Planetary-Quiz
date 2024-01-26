@@ -4,19 +4,21 @@ import { useNavigate } from "react-router-dom"
 
 const NewQuizForm = () => {
   const { userName } = useContext(AppContext)
-  const [defaultImg, setDefaultImg] = useState(false)
   const defaultUrl = '/src/images/questionmark.png'
   const navigate = useNavigate()
   const [newQuiz, setNewQuiz] = useState({
     name: "",
-    img: "",
+    img: defaultUrl,
     subject: "",
     creatorId: "",
+    active: false,
     questions: [
       {
         id: 1,
         question: "",
-        options: [],
+        options: [
+          ""
+        ],
         answer: ""
       }
     ]
@@ -30,7 +32,6 @@ const NewQuizForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     postQuiz()
-
   }
 
   const postQuiz = async () => {
@@ -63,31 +64,7 @@ const NewQuizForm = () => {
     })
   }
 
-  const ShowImageInput = () => {
-    return (
-      !defaultImg ? (
-        <label>
-          You can also paste some image URL from the internet:<br />
-          <input name="img" type="text" placeholder="Paste that link here" onInput={addQuiz} required />
-        </label>
-      ) : (
-        <h2>Okay, we will use the default image :)</h2>
-      )
-    );
-  };
-
   const ShowButton = () => {
-    if(!defaultImg)
-    return <label>
-      <button onClick={() => {
-        setDefaultImg(true);
-        setNewQuiz((prevValue) => ({
-          ...prevValue,
-          img: defaultUrl
-        }))
-        }} >I want to use default image instead</button>
-      </label>
-
     if (newQuiz.name && newQuiz.subject && newQuiz.img) { return (
       <label >
         <h1>
@@ -109,7 +86,6 @@ const NewQuizForm = () => {
             Next, lets deside what it is about:<br />
             <input name="subject" type="text" placeholder="What your quiz is about?" onInput={addQuiz} required />
         </label>
-        <ShowImageInput />
         <ShowButton />
         </form>
   )

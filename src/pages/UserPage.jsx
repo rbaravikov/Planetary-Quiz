@@ -30,7 +30,7 @@ const UserPage = () => {
   }
 
   const openQuiz = (id) => {
-    navigate(`/editquiz/${id}`)
+    navigate(`/initquizedit/${id}`)
   }
 
   const postDelete = async (quizId) => {

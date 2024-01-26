@@ -1,7 +1,9 @@
 import { Link, Outlet } from "react-router-dom"
-import { TbHeartQuestion } from "react-icons/tb"
 import { AppContext } from '../App';
 import { useContext } from "react";
+import React from 'react';
+import Logo from '../images/logo-removedbg.svg';
+
 
 const Header = () => {
   const { userName } = useContext(AppContext)
@@ -15,7 +17,7 @@ const Header = () => {
     <>
      {userName && userName 
      ? <header>
-        <Link to="/mainpage/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
+        <Link to="/mainpage/"><h1><img src={Logo} alt="Logo" /> Fancy-quiz.me</h1></Link>
         <div className="headerNav">
           <Link className="createQuiz" to={'/createquiz'} >Create Quiz</Link>
           <Link to={'/userPage/' + userName.name}>{userName.name}</Link>
@@ -23,7 +25,7 @@ const Header = () => {
         </div>
       </header> 
     : <header>
-        <Link to="/"><h1><TbHeartQuestion /> Fancy-quiz.me</h1></Link>
+        <Link to="/"><h1> Fancy-quiz.me</h1></Link>
         <div className="headerNav">
           <Link to="/login/" >Log In</Link>
         </div>

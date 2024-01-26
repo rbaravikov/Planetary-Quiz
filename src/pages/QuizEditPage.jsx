@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { AppContext } from "../App"
 import RenderOptions from "../components/EditQuiz/RenderOptions"
 import { PatchQuiz } from "../components/EditQuiz/PatchQuiz"
+import FetchQuizData from "../components/EditQuiz/FetchQuizData"
 
 const QuizEditPage = () => {
     const { quizid } = useParams()
@@ -15,20 +16,12 @@ const QuizEditPage = () => {
     const [optionsArr, setOptionsArr] = useState([])
     const [answer, setAnswer] = useState('')
     const navigate = useNavigate()
+    const navigateTo = `/editquizfin/${quizid}`
 
     // Atsisiunčiam klausimyno duomenis ir išsaugome quizData
-    const fetchData = async () => {
-        try {
-        const resp = await fetch('http://localhost:4400/quiz/' + quizid)
-        const data = await resp.json()
-        setQuizData(data)
-        } catch (err) {
-            console.err(err);
-        }
-    }
     
     useEffect(() => {
-        fetchData()
+        FetchQuizData(setQuizData, quizid)
     }, [])
     
     // Jei atsiųstas quizData turi klausimus juos perduodam į formos inputus, taip pat naviguojant tarp puslapių atnaujiname inputus
@@ -47,13 +40,12 @@ const QuizEditPage = () => {
         }
     }, [quizData.questions, currentTab])
 
-    // Navigavija tarp klausimų, naudoju .then nes kartais veikia, o kartais ne. (man atrodo) tab'ai keičiasi greičiau, nei data atsinaujina...?
+    // Navigavija tarp klausimų
     const nextQuestion = () => {
         updateQuizData()
         if(quizData.questions[currentTab - 1].options.length === 0 ) {return alert('Add atlest 1 incorrect answer')}
         setTotalOptions(1)
         setCurrentTab((prevValue) => prevValue + 1)
-        console.log(currentTab)
     }
     
     const prevQuestion = () => {
@@ -75,12 +67,12 @@ const QuizEditPage = () => {
         }
         setQuizData(updatedQuiz)
     }
-    
+    // Klausimai išsaugimi json-server
     const handleSubmit = (e) => {
         e.preventDefault()
         updateQuizData()
         if(quizData.questions[currentTab - 1].options.length === 0 ) {return alert('Add atlest 1 incorrect answer')}
-        PatchQuiz(quizData, quizid)
+        PatchQuiz(quizData, quizid, navigate, navigateTo)
     }
 
     const handleRemoveQuestion = (tab) => {
@@ -96,7 +88,7 @@ const QuizEditPage = () => {
     }
 
   return (
-    <form className="newQuizForm" onSubmit={handleSubmit}>
+    <form className="quizForm" onSubmit={handleSubmit}>
         <>
         <h1>{quizData.name}</h1>
         <h2>Add your question #{currentTab}</h2>

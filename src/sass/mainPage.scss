@@ -14,14 +14,22 @@
     min-width: 190px;
     display: flex;
     flex-direction: column;
+    position: relative;
     &:hover {
       transform: scale(1.05);
     }
+
+    
+    .card-content {
+
+      img {
+        border-radius: 6px 6px 0 0;
+        max-width: calc(100vw / 4 - 60px);
+      }
+      
+    }
   }
 
-  .card img {
-    border-radius: 6px 6px 0 0;
-  }
 
   .card h2 {
     line-height: 2em;

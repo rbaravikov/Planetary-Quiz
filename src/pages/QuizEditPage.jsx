@@ -51,6 +51,7 @@ const QuizEditPage = () => {
     const nextQuestion = () => {
         updateQuizData()
         if(quizData.questions[currentTab - 1].options.length === 0 ) {return alert('Add atlest 1 incorrect answer')}
+        setTotalOptions(1)
         setCurrentTab((prevValue) => prevValue + 1)
         console.log(currentTab)
     }

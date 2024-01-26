@@ -57,3 +57,17 @@ button {
         scale: 1.05;
     }
 }
+
+.deleteQuiz {
+    color: #ff0e0e;
+    background: black;
+    width: min-content;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px 12px 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+}

@@ -1,5 +1,5 @@
 import { IoMdCloseCircle } from "react-icons/io";
-const RenderOptions = ({ totalQuestions, optionsArr, setOptionsArr, setTotalQuestions }) => {
+const RenderOptions = ({ totalOptions, optionsArr, setOptionsArr, setTotalOptions }) => {
     
     
     const handleOptionChange = (i, value) => {
@@ -14,18 +14,18 @@ const RenderOptions = ({ totalQuestions, optionsArr, setOptionsArr, setTotalQues
         setOptionsArr((prevValue) => {
             const newOption = [...prevValue];
             newOption.splice(i, 1);
-            setTotalQuestions(newOption.length)
+            setTotalOptions(newOption.length)
             return newOption;
         });
     };
 
     const options = []
 
-    for (let i = 0; i < totalQuestions; i++) {
+    for (let i = 0; i < totalOptions; i++) {
         options.push(
         <label key={i}>
             Incorrect answer {i + 1}:<br />
-            <input type="text" value={optionsArr[i] || ''} placeholder={`Ex. Orange cat`} onChange={(e) => handleOptionChange(i, e.target.value)}
+            <input type="text" value={optionsArr[i] || ''} placeholder={`Ex. Orange cat`} onChange={(e) => handleOptionChange(i, e.target.value)} required
             />
             <IoMdCloseCircle size={20} onClick={() => handleRemoveOption(i)} />
         </label>

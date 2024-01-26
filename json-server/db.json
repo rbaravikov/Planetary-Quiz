@@ -80,274 +80,33 @@
       ]
     },
     {
-      "id": "06db",
-      "name": "Mopsas",
+      "id": "c577",
+      "name": "Flat-earther Test",
       "img": "/src/images/questionmark.png",
-      "subject": "Šuo?",
-      "creatorId": "efb45559-f3fb-6256-b9bc-118d4ba493a6",
-      "questions": [
-        {
-          "id": 1,
-          "question": "arefg",
-          "options": [
-            "eraerg",
-            "aerg"
-          ],
-          "answer": "aerg"
-        },
-        {
-          "id": 2,
-          "question": "argaWERG",
-          "options": [
-            "EARG"
-          ],
-          "answer": "AERGF"
-        }
-      ]
-    },
-    {
-      "id": "1583",
-      "name": "Dar vienas",
-      "img": "/src/images/questionmark.png",
-      "subject": "adfg",
-      "creatorId": "efb45559-f3fb-6256-b9bc-118d4ba493a6",
-      "questions": [
-        {
-          "id": 1,
-          "question": "aergf",
-          "options": [
-            "ef",
-            "WEFwee"
-          ],
-          "answer": "sef"
-        }
-      ]
-    },
-    {
-      "id": "9183",
-      "name": "Na dabar normaliai bandome",
-      "img": "/src/images/questionmark.png",
-      "subject": "Tema pvz planetos",
-      "creatorId": "efb45559-f3fb-6256-b9bc-118d4ba493a6",
-      "questions": [
-        {
-          "id": 1,
-          "question": "Klausimas 1 ",
-          "options": [
-            "saulė",
-            "debesis"
-          ],
-          "answer": "Žemė"
-        },
-        {
-          "id": 2,
-          "question": "Klausimas 2",
-          "options": [
-            "opcija",
-            "opcija 2"
-          ],
-          "answer": "Ats"
-        },
-        {
-          "id": 3,
-          "question": "Klausimas 3",
-          "options": [
-            "opcija",
-            "opcija 2",
-            "opcija 3",
-            "opcija 4",
-            "opcija 5"
-          ],
-          "answer": "Ats"
-        }
-      ]
-    },
-    {
-      "id": "ede7",
-      "name": "Dar vienas",
-      "img": "/src/images/questionmark.png",
-      "subject": "quizas",
-      "creatorId": "efb45559-f3fb-6256-b9bc-118d4ba493a6",
+      "subject": "Are you a Flat-Earther?",
+      "creatorId": "e456abde-8eeb-ece4-7afc-506190a99c55",
       "active": false,
+      "victoryMsg": "",
+      "tryMsg": "",
+      "timeLimit": 25,
       "questions": [
         {
           "id": 1,
-          "question": "Šuo",
+          "question": "Is earth flat",
           "options": [
-            "pelė"
+            "no",
+            "maybe"
           ],
-          "answer": "katė"
-        },
-        {
-          "id": 2,
-          "question": "adsfg",
-          "options": [
-            "sgar"
-          ],
-          "answer": "daerg"
-        }
-      ]
-    },
-    {
-      "id": "3f8d",
-      "name": "af",
-      "img": "/src/images/questionmark.png",
-      "subject": "adfvg",
-      "creatorId": "efb45559-f3fb-6256-b9bc-118d4ba493a6",
-      "active": false,
-      "questions": [
-        {
-          "id": 1,
-          "question": "vaesr",
-          "options": [
-            "aerfv",
-            "aerv",
-            "arev"
-          ],
-          "answer": "arvf"
-        },
-        {
-          "id": 2,
-          "question": "eav",
-          "options": [
-            "aerfv"
-          ],
-          "answer": "aedvr"
-        },
-        {
-          "id": 3,
-          "question": "",
-          "options": [],
-          "answer": ""
+          "answer": "Yes"
         }
       ]
     }
   ],
   "Users": [
     {
-      "id": "efb45559-f3fb-6256-b9bc-118d4ba493a6",
+      "id": "e456abde-8eeb-ece4-7afc-506190a99c55",
       "name": "Robert",
       "email": "lalaal@dog.com"
-    },
-    {
-      "id": "e1ecbd20-70c0-a6c1-7ead-adcf11406cfe",
-      "name": "Mopsas",
-      "email": "cacaca@dog.com"
-    },
-    {
-      "id": "8f220713-eea7-2bec-ebe5-95684db27134",
-      "name": "DogCat",
-      "email": "lalaal@dog.com"
-    },
-    {
-      "id": "b9c393c4-9038-16ea-2388-838485b2a1b5",
-      "name": "DogCat",
-      "email": "cacaca@dog.com"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "CatDog",
-      "email": "cacaca@dog.com"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "CatDog",
-      "email": "cacaca@dog.com"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "CatDog",
-      "email": "cacaca@dog.com"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "CatDog",
-      "email": "cacaca@dog.de"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "CatDog",
-      "email": "cacaca@dog.de"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "ASda",
-      "email": "cacaca@dog.de"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "ASda",
-      "email": "cacaca@dog.de"
-    },
-    {
-      "id": "263e1e2b-33fb-5e2c-8117-b21d69b96a93",
-      "name": "ASda",
-      "email": "cacaca@dog.de"
-    },
-    {
-      "id": "1816c5ff-5929-4f1f-fe46-50bfd0714bfd",
-      "name": "DogCat",
-      "email": "cacaca@dog.gb"
-    },
-    {
-      "id": "1816c5ff-5929-4f1f-fe46-50bfd0714bfd",
-      "name": "DogCat",
-      "email": "cacaca@dog.gb"
-    },
-    {
-      "id": "1816c5ff-5929-4f1f-fe46-50bfd0714bfd",
-      "name": "DogCat",
-      "email": "cacaca@dog.gb"
-    },
-    {
-      "id": "52c8dcee-0a73-0e6b-98fe-da594272eeea",
-      "name": "agfd",
-      "email": "sfrad@gsf.co"
-    },
-    {
-      "id": "52c8dcee-0a73-0e6b-98fe-da594272eeea",
-      "name": "agfd",
-      "email": "sfrad@gsf.co"
-    },
-    {
-      "id": "52c8dcee-0a73-0e6b-98fe-da594272eeea",
-      "name": "agfd",
-      "email": "sfrad@gsf.co"
-    },
-    {
-      "id": "3c9656a2-a26f-c70c-6ff5-c2f7da1b8e17",
-      "name": "agfa",
-      "email": "safgv@gasr.fghj"
-    },
-    {
-      "id": "3c9656a2-a26f-c70c-6ff5-c2f7da1b8e17",
-      "name": "agfa",
-      "email": "safgv@gasr.fghj"
-    },
-    {
-      "id": "3c9656a2-a26f-c70c-6ff5-c2f7da1b8e17",
-      "name": "agfa",
-      "email": "safgv@gasr.fghj"
-    },
-    {
-      "id": "d76c2ab4-2a6a-bbf0-66f2-c790b39b155e",
-      "name": "Robert",
-      "email": "sdgsd@sgedfas.sdgfa"
-    },
-    {
-      "id": "7a3a08c6-aef6-69bf-5797-480ff63fac48",
-      "name": "Robert B",
-      "email": "asf@ada.lt"
-    },
-    {
-      "id": "cebf3efa-804e-8400-d62a-175b7a91b133",
-      "name": "Robert",
-      "email": "lalaal@dog.c"
-    },
-    {
-      "id": "e236d1a7-9c1e-b70e-6d7e-6e3583277895",
-      "name": "aetrg",
-      "email": "aertg@rtgh.lt"
     }
   ]
 }

@@ -12,6 +12,9 @@ const NewQuizForm = () => {
     subject: "",
     creatorId: "",
     active: false,
+    victoryMsg: "",
+    tryMsg: "",
+    timeLimit: 60,
     questions: [
       {
         id: 1,
@@ -47,7 +50,7 @@ const NewQuizForm = () => {
       const data = await resp.json();
 
       if (resp.ok) {
-        navigate(`/editquiz/${data.id}`)
+        navigate(`/initquizedit/${data.id}`)
       }
     } catch (err) {
       console.log(err)

@@ -13,21 +13,23 @@ const FinishQuizEdit = () => {
     const [tryMsg, settryMsg] = useState('')
     const [active, setActive] = useState(false)
     const navigate = useNavigate()
+    const defaultUrl = '/src/images/questionmark.png'
 
 
     useEffect(() => {
         FetchQuizData(setQuizData, quizid)
+        setVictoryMsg(quizData.victoryMsg)
+        settryMsg(quizData.tryMsg)
     }, [])
     
     const updateQuizData = () => {
-        const updatedQuiz = {...quizData}
-        updatedQuiz = {
+        const updatedQuiz = ({...quizData,
             victoryMsg : victoryMsg || 'Congratulations, you got perfect score!',
             tryMsg : tryMsg || 'Better luck next time',
             active : active
-        }
+        })
         setQuizData(updatedQuiz)
-    }
+        }
 
     const handleSubmit = (e) => {
         e.preventDefault()

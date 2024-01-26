@@ -15,21 +15,19 @@ const Header = () => {
 
   return (
     <>
-     {userName && userName 
-     ? <header>
-        <Link to="/mainpage/"><h1><img src={Logo} alt="Logo" /> Fancy-quiz.me</h1></Link>
-        <div className="headerNav">
+    <header>
+      <Link to="/mainpage/"><h1><img src={Logo} alt="Fancy-quiz.me" /> Fancy-quiz.me</h1></Link>
+        {userName && userName
+        ? <div className="headerNav">
           <Link className="createQuiz" to={'/createquiz'} >Create Quiz</Link>
           <Link to={'/userPage/' + userName.name}>{userName.name}</Link>
           <Link to="/" onClick={handleClick} >Log Out</Link>
         </div>
-      </header> 
-    : <header>
-        <Link to="/"><h1> Fancy-quiz.me</h1></Link>
-        <div className="headerNav">
+        : <div className="headerNav">
           <Link to="/login/" >Log In</Link>
-        </div>
-      </header>}
+        </div>}
+    </header>
+    
     <Outlet />
     </>
   )

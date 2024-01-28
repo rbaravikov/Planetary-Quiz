@@ -25,7 +25,7 @@ const RenderOptions = ({ totalOptions, optionsArr, setOptionsArr, setTotalOption
         options.push(
         <label key={i}>
             Incorrect answer {i + 1}:<br />
-            <input type="text" value={optionsArr[i] || ''} placeholder={`Ex. Orange cat`} onChange={(e) => handleOptionChange(i, e.target.value)} required
+            <input type="text" value={optionsArr[i] || ''} placeholder={`Ex. Orange cat`} onChange={(e) => handleOptionChange(i, e.target.value)}
             />
             <IoMdCloseCircle size={20} onClick={() => handleRemoveOption(i)} />
         </label>

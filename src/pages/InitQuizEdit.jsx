@@ -6,7 +6,7 @@ import { PatchQuiz } from "../components/EditQuiz/PatchQuiz"
 const InitQuizEdit = () => {
 
     const { quizid } = useParams()
-    const [timeLimit, setTimeLimit] = useState(60)
+    const [timeLimit, setTimeLimit] = useState('')
     const [quizData, setQuizData] = useState({})
     const [imgUrl, setImgUrl] = useState('')
     const [newQuizData, setNewQuizData] = useState({})
@@ -41,9 +41,8 @@ const InitQuizEdit = () => {
 
     const updateQuizData = () => {
         if(!isUrl(imgUrl)) {return alert(`Invalid URL\n(its ok to leave it empty :)`)}
-
         setNewQuizData({
-            timeLimit: Number(timeLimit),
+            timeLimit: timeLimit? Number(timeLimit) : 60,
             active: active,
             img: imgUrl || '/src/images/questionmark.png',
         })
@@ -61,13 +60,15 @@ const InitQuizEdit = () => {
   return (
     <form className="quizForm" onSubmit={handleSubmit}>
         <h1>Set some basic parameters</h1>
+        <br />
         <label>
-            Paste you URL here:<br/>
+            You can paste URL to your picture here, or leave it blank, for default image)<br/>
             <input onChange={(e) => setImgUrl(e.target.value)} value={imgUrl} type="text" placeholder="if blank, default img will be used"/>
         </label>
+        <br />
         <label >
-            Set time limit per question
-            <input value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} type="number" min={1} max={3600} placeholder="(1-60)"/>
+            Next, lets decide how many seconds you want to give for each question
+            <input value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} type="number" min={1} max={3600} placeholder="(By default it is 60 seconds)"/>
         </label>
         <button>Go to questions</button>
     </form>

@@ -14,7 +14,7 @@ const NewQuizForm = () => {
     active: false,
     victoryMsg: "",
     tryMsg: "",
-    timeLimit: 60,
+    timeLimit: '',
     questions: [
       {
         id: 1,

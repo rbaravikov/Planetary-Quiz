@@ -42,6 +42,8 @@ const QuizEditPage = () => {
 
     // Navigavija tarp klausimų
     const nextQuestion = () => {
+        const filteredOptionsArr = optionsArr.filter(option => option !== null)
+        setOptionsArr(...filteredOptionsArr)
         updateQuizData()
         if(quizData.questions[currentTab - 1].options.length === 0 ) {return alert('Add atlest 1 incorrect answer')}
         setTotalOptions(1)
@@ -58,11 +60,13 @@ const QuizEditPage = () => {
     // ========================
 
     const updateQuizData = () => {
+        const filteredOptionsArr = optionsArr.filter(option => option !== null)
+
         const updatedQuiz = {...quizData}
         updatedQuiz.questions[currentTab - 1] = {
             id : currentTab,
             question: question,
-            options: [...optionsArr],
+            options: [...filteredOptionsArr],
             answer: answer
         }
         setQuizData(updatedQuiz)

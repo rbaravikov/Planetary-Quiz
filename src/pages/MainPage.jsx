@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 
 const MainPage = () => {
@@ -7,6 +8,23 @@ const MainPage = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [filteredArray, setFilteredArray] = useState([])
+    const div = {
+        hidden: { opacity: 0},
+        visible: {
+            opacity: 1,
+            transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.3
+        }
+    }
+    }
+    const card = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        }
+    }
 
     const fetchData = async () => {
     try {
@@ -39,17 +57,18 @@ const MainPage = () => {
         <>
         <label>
             Find quiz <br/>
-            <input onChange={(e) => useFilter(e)}/>
+            <input placeholder='Search quiz by name' onChange={(e) => useFilter(e)}/>
         </label>
-        <div className="cardsContainer">
+        <motion.div className='cardsContainer' variants={div} initial="hidden" animate="visible">
             {filteredArray && filteredArray.map((quiz) => (
-                <div onClick={() =>handleClick(quiz.id)} className="card" key={quiz.id}>
-                    <img src={quiz.img} alt="planet" />
+                <motion.div variants={card} initial='hidden' animate='visible' onClick={() =>handleClick(quiz.id)} className="card" key={quiz.id}>
+                    <img src={quiz.img} alt="quiz" />
                     <h2>{quiz.name}</h2>
+                    <h3>{quiz.subject}</h3>
                     <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
-            </div>
+                </motion.div>
             ) )}
-        </div>
+        </motion.div>
             </>
     )
 }

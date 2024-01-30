@@ -87,7 +87,7 @@ const NewQuizForm = () => {
         </label>
         <label>
             Next, lets deside what it is about:<br />
-            <input name="subject" type="text" placeholder="What your quiz is about?" onInput={addQuiz} required />
+            <input name="subject" type="text" placeholder="Ex. Popular cat fur patterns" onInput={addQuiz} required />
         </label>
         <ShowButton />
         </form>

@@ -15,10 +15,10 @@ const Register = () => {
         headers: {
           "Content-Type": "application/json"
         },
-      });
+      })
 
       if (resp.ok) {
-        const data = await resp.json();
+        const data = await resp.json()
         data.length === 0 ? postUser() : alert("This User is taken")
       }
   }
@@ -34,7 +34,7 @@ const Register = () => {
       })
         
       if(resp.ok) {
-        localStorage.setItem('user', JSON.stringify({ name: user.name, id: user.id }));
+        localStorage.setItem('user', JSON.stringify({ name: user.name, id: user.id }))
         setUserName(user.name)
         navigate('/mainpage/')
       }
@@ -50,7 +50,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    postUser()
     isNewUser()
   }
 

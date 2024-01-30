@@ -19,6 +19,7 @@ const Header = () => {
     <header>
         {userName && userName.name
         ? <>
+        {console.log(userName, 'true')}
           <Link to="/mainpage/"><h1><img src={Logo} alt="Fancy-quiz.me" /> Fancy-quiz.me</h1></Link>
           <div className="headerNav">
           <Link className="createQuiz" to={'/createquiz'} >Create Quiz</Link>
@@ -27,6 +28,7 @@ const Header = () => {
         </div></>
         : 
           <>
+          {console.log(userName, 'false')}
           <Link to="/"><h1><img src={Logo} alt="Fancy-quiz.me" /> Fancy-quiz.me</h1></Link>
         <div className="headerNav">
           <Link to="/login/" >Log In</Link>

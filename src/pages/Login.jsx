@@ -18,7 +18,8 @@ const Login = () => {
   
     if (resp.ok) {
       const user = await resp.json()
-
+      console.log(user)
+      
       user && user.length > 0
       ? (
         setUserName(user[0].name, user[0].id),

@@ -40,14 +40,12 @@ const UserPage = () => {
       });
   
       if (deleteResp.ok) {
-        console.log('Quiz deleted successfully');
-        // You may want to refetch data after deletion
         fetchData();
       } else {
-        console.error('Error deleting quiz:', deleteResp.status);
+        console.log(deleteResp.status);
       }
-    } catch (error) {
-      console.error("Error deleting quiz:", error);
+    } catch (err) {
+      console.log(err);
     }
   };
 

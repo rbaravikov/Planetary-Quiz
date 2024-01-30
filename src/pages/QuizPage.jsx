@@ -8,21 +8,36 @@ const QuizPage = () => {
     const [quizTab, setQuizTab] = useState(0)
     const [quiz, setQuiz] = useState()
     const [score, setScore] = useState(0)
+    const [options, setOptions] = useState([])
 
     const fetchData = async () => {
         try {
           const resp = await fetch('http://localhost:4400/quiz/' +id);
           const data = await resp.json();
           setQuiz(data)
-          console.log(data.questions)
         } catch (error) {
           console.error("Error fetching data:", error);
         }
-      }
+    }
     
-      useEffect(() => {
+    useEffect(() => {
         fetchData()
     }, [])
+
+    const randomiseOrder = (options) => {
+        for (let i = options.length - 1; i > 0; i--) {
+          const randomNumber = Math.floor(Math.random() * (i + 1));
+          [options[i], options[randomNumber]] = [options[randomNumber], options[i]];
+        }
+        return options;
+      };
+
+    useEffect(() => {
+        if(quiz && quizTab!= 0 && quizTab <= quiz.questions.length) {
+            const randomOrderArray = randomiseOrder([...quiz.questions[quizTab - 1].options, quiz.questions[quizTab - 1].answer,])
+            setOptions(randomOrderArray)
+        }
+    }, [quizTab])
 
     const handleClick = () => {
         setQuizTab((prevValue) => prevValue + 1)
@@ -60,15 +75,24 @@ const QuizPage = () => {
                 <div className="questionBody">
                     <h1>{quiz && quiz.questions[quizTab - 1].question}</h1>
                     <div className="options">
-                        {quiz && quiz.questions[quizTab - 1].options.map((option, index) => (
+                        {options && options.map((option, index) => (
                             <button className="option" onClick={() =>handleAnswer(option)} key={index}>{option}</button>
                         ))}
                     </div>
                 </div>
             </div> :
             <div className="startNotification">
-                <h1>Good Job, your score is {score} out of {quiz.questions.length}</h1>
-                {score === quiz.questions.length ? <Link to={'/mainpage'}>Try another quiz</Link> : <button onClick={handleReset}>Try Again</button> }
+                {score === quiz.questions.length ?
+                <>
+                <h1>Good Job, your score is {score} out of {quiz.questions.length}.</h1>
+                <h1>{quiz.victoryMsg}</h1>
+                </> 
+                : 
+                <>
+                <h1>Nice try, your score is {score} out of {quiz.questions.length}.</h1>
+                <h1>{quiz.tryMsg}</h1>
+                </>}
+                {score === quiz.questions.length ? <Link to={'/mainpage/'}>Try another quiz</Link> : <button onClick={handleReset}>Try Again</button> }
             </div>
             
     }
@@ -76,7 +100,7 @@ const QuizPage = () => {
   return (
     <div className="quizContainer">
         {activeQuestionTab()}
-        
+        U
     </div>
   )
 }

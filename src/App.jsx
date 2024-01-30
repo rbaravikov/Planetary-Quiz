@@ -31,7 +31,7 @@ function App() {
     <AppContext.Provider value={{userName, setUserName}}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Header userName={userName} />}>
+          <Route path="/" element={<Header setUserName={setUserName} userName={userName} />}>
             <Route path="/" element={<Welcome userName={userName}/>} />
             <Route path="/login/" element={<Login setUserName={setUserName} />} />
             <Route path="/register/" element={<Register setUserName={setUserName}/>} />

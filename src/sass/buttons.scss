@@ -46,7 +46,7 @@ button {
     border-radius: 30px;
     font-size: 1em;
     padding: 10px 50px;
-    margin: auto;
+    margin: 5px auto;
     color: white;
     border: none;
     transition: .3s;
@@ -69,5 +69,7 @@ button {
     align-items: center;
     justify-content: center;
     position: absolute;
+    top: 0;
     right: 0;
+    transition: transform 0.3s;
 }

@@ -5,6 +5,7 @@
       "name": "Solar System Quiz",
       "img": "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "active": true,
+      "subject": "Lets see just how much you know about our solar system",
       "questions": [
         {
           "id": 1,
@@ -81,7 +82,7 @@
       "img": "https://images.unsplash.com/photo-1585747354995-bf346fd32d9f?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "subject": "Are you a Flat-Earther?",
       "creatorId": "e456abde-8eeb-ece4-7afc-506190a99c55",
-      "active": true,
+      "active": false,
       "victoryMsg": "Sadly you are flat=earther",
       "tryMsg": "Gratz you are normal",
       "timeLimit": 15,
@@ -97,23 +98,344 @@
       ]
     },
     {
-      "id": "b47c",
-      "name": "hgddhf",
-      "img": "/src/images/questionmark.png",
-      "subject": "hfhg",
-      "creatorId": "e456abde-8eeb-ece4-7afc-506190a99c55",
-      "active": false,
-      "victoryMsg": "",
-      "tryMsg": "",
-      "timeLimit": "",
+      "id": "3",
+      "name": "Science Fiction Quiz",
+      "img": "https://images.unsplash.com/photo-1569361698969-7cc84c387f7a?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
       "questions": [
         {
           "id": 1,
-          "question": "",
+          "question": "In which famous science fiction series would you find the character Spock?",
           "options": [
-            ""
+            "Star Wars",
+            "Doctor Who",
+            "Star Trek"
           ],
-          "answer": ""
+          "answer": "Star Trek"
+        },
+        {
+          "id": 2,
+          "question": "What is the name of the famous science fiction novel by H.G. Wells featuring Martian invaders?",
+          "options": [
+            "The Time Machine",
+            "War of the Worlds",
+            "The Invisible Man"
+          ],
+          "answer": "War of the Worlds"
+        },
+        {
+          "id": 3,
+          "question": "Who is the author of the 'Foundation' series, a classic in science fiction literature?",
+          "options": [
+            "Isaac Asimov",
+            "Arthur C. Clarke",
+            "Philip K. Dick"
+          ],
+          "answer": "Isaac Asimov"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "General Knowledge Quiz",
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=3300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the capital city of Australia?",
+          "options": [
+            "Sydney",
+            "Melbourne",
+            "Canberra"
+          ],
+          "answer": "Canberra"
+        },
+        {
+          "id": 2,
+          "question": "Which element has the chemical symbol 'O'?",
+          "options": [
+            "Oxygen",
+            "Gold",
+            "Silver"
+          ],
+          "answer": "Oxygen"
+        },
+        {
+          "id": 3,
+          "question": "Who painted the Mona Lisa?",
+          "options": [
+            "Vincent van Gogh",
+            "Leonardo da Vinci",
+            "Pablo Picasso"
+          ],
+          "answer": "Leonardo da Vinci"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "History Buff Quiz",
+      "img": "https://images.unsplash.com/photo-1564867696724-2ad4187b64ee?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who was the first President of the United States?",
+          "options": [
+            "Thomas Jefferson",
+            "John Adams",
+            "George Washington"
+          ],
+          "answer": "George Washington"
+        },
+        {
+          "id": 2,
+          "question": "In which year did World War I end?",
+          "options": [
+            "1917",
+            "1918",
+            "1919"
+          ],
+          "answer": "1918"
+        },
+        {
+          "id": 3,
+          "question": "What ancient civilization built the pyramids of Giza?",
+          "options": [
+            "Mayans",
+            "Ancient Greeks",
+            "Ancient Egyptians"
+          ],
+          "answer": "Ancient Egyptians"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Nature Explorer Quiz",
+      "img": "https://images.unsplash.com/photo-1525576431377-9946fdd1462e?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which mammal is the largest on Earth?",
+          "options": [
+            "Elephant",
+            "Blue Whale",
+            "Giraffe"
+          ],
+          "answer": "Blue Whale"
+        },
+        {
+          "id": 2,
+          "question": "What is the largest rainforest in the world?",
+          "options": [
+            "Amazon Rainforest",
+            "Congo Rainforest",
+            "Borneo Rainforest"
+          ],
+          "answer": "Amazon Rainforest"
+        },
+        {
+          "id": 3,
+          "question": "Which planet is known as the 'Red Planet'?",
+          "options": [
+            "Mars",
+            "Venus",
+            "Mercury"
+          ],
+          "answer": "Mars"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Movie Buff Quiz",
+      "img": "https://images.unsplash.com/photo-1554384645-13eab165c24b?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who directed the movie 'Inception'?",
+          "options": [
+            "Christopher Nolan",
+            "Steven Spielberg",
+            "Quentin Tarantino"
+          ],
+          "answer": "Christopher Nolan"
+        },
+        {
+          "id": 2,
+          "question": "Which actor played the character Iron Man in the Marvel Cinematic Universe?",
+          "options": [
+            "Chris Hemsworth",
+            "Robert Downey Jr.",
+            "Chris Evans"
+          ],
+          "answer": "Robert Downey Jr."
+        },
+        {
+          "id": 3,
+          "question": "In which year was the first 'Star Wars' movie released?",
+          "options": [
+            "1977",
+            "1980",
+            "1983"
+          ],
+          "answer": "1977"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Geography Whiz Quiz",
+      "img": "https://images.unsplash.com/photo-1562114997-cd3d4176f3f6?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Which river is the longest in the world?",
+          "options": [
+            "Nile River",
+            "Amazon River",
+            "Yangtze River"
+          ],
+          "answer": "Nile River"
+        },
+        {
+          "id": 2,
+          "question": "What is the capital city of Japan?",
+          "options": [
+            "Beijing",
+            "Seoul",
+            "Tokyo"
+          ],
+          "answer": "Tokyo"
+        },
+        {
+          "id": 3,
+          "question": "Which desert is the largest in the world?",
+          "options": [
+            "Sahara Desert",
+            "Gobi Desert",
+            "Atacama Desert"
+          ],
+          "answer": "Sahara Desert"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Technology Guru Quiz",
+      "img": "https://images.unsplash.com/photo-1521739475831-f6e10218aee6?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who is the co-founder of Microsoft Corporation?",
+          "options": [
+            "Steve Jobs",
+            "Bill Gates",
+            "Mark Zuckerberg"
+          ],
+          "answer": "Bill Gates"
+        },
+        {
+          "id": 2,
+          "question": "In what year was the first iPhone released?",
+          "options": [
+            "2005",
+            "2007",
+            "2009"
+          ],
+          "answer": "2007"
+        },
+        {
+          "id": 3,
+          "question": "What does the acronym 'URL' stand for?",
+          "options": [
+            "Uniform Resource Locator",
+            "Universal Reference Locator",
+            "Unified Resource Locator"
+          ],
+          "answer": "Uniform Resource Locator"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Music Maestro Quiz",
+      "img": "https://images.unsplash.com/photo-1560659652-0b39e25a0d04?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who is known as the 'King of Pop'?",
+          "options": [
+            "Elvis Presley",
+            "Michael Jackson",
+            "Prince"
+          ],
+          "answer": "Michael Jackson"
+        },
+        {
+          "id": 2,
+          "question": "Which instrument does Yo-Yo Ma play?",
+          "options": [
+            "Violin",
+            "Cello",
+            "Piano"
+          ],
+          "answer": "Cello"
+        },
+        {
+          "id": 3,
+          "question": "What genre of music is characterized by its use of electronic instruments and a repetitive beat?",
+          "options": [
+            "Rock",
+            "Jazz",
+            "Electronic Dance Music (EDM)"
+          ],
+          "answer": "Electronic Dance Music (EDM)"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Art Aficionado Quiz",
+      "img": "https://images.unsplash.com/photo-1560739522-6097d5c11251?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "active": true,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Who painted 'Starry Night'?",
+          "options": [
+            "Vincent van Gogh",
+            "Pablo Picasso",
+            "Leonardo da Vinci"
+          ],
+          "answer": "Vincent van Gogh"
+        },
+        {
+          "id": 2,
+          "question": "Which art movement includes works with distorted and exaggerated depictions of reality?",
+          "options": [
+            "Impressionism",
+            "Cubism",
+            "Surrealism"
+          ],
+          "answer": "Surrealism"
+        },
+        {
+          "id": 3,
+          "question": "What is the famous sculpture by Michelangelo that depicts the biblical figure David?",
+          "options": [
+            "The Pieta",
+            "The Last Judgment",
+            "David"
+          ],
+          "answer": "David"
         }
       ]
     }

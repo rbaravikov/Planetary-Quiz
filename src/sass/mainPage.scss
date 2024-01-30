@@ -1,3 +1,29 @@
+.filter {
+  background: rgba(255, 240, 240, 0.556);
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+  width: 45%;
+  display: block;
+  text-align: center;
+  color: chocolate;
+  border-radius: 12px;
+  max-width: 400px;
+
+  input {
+    padding: 8px;
+    margin: 5px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid gray;
+    outline: none;
+    
+    &::placeholder {
+      text-align: center;
+    }
+  }
+}
+
 .cardsContainer {
     margin: 50px;
     padding: 10px;
@@ -12,6 +38,7 @@
     border-radius: 6px;
     transition: 0.3s;
     min-width: 190px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -19,30 +46,54 @@
       transform: scale(1.05);
     }
 
-    
-    .card-content {
+    img {
+      border-radius: 6px 6px 0 0;
+      width: 100%;
+      max-height: 228px;
+      object-fit: contain;
+      object-position: center;
+    }
 
-      img {
-        border-radius: 6px 6px 0 0;
-        max-width: calc(100vw / 4 - 60px);
-      }
-      
+    h2 {
+      padding: 0 10px;
+      margin: 10px 0;
+      color: chocolate;
+    }
+
+    h4 {
+      padding: 0 10px;
+    }
+    
+  p {
+    margin-top: auto;
+    padding: 10px;
+  }
+  
+}
+
+  @media (max-width: 2000px) {
+    .cardsContainer{
+        grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  @media (max-width: 1400px) {
+    .cardsContainer{
+        grid-template-columns: repeat(5, 1fr);
     }
   }
 
-
-  .card h2 {
-    line-height: 2em;
-    padding: 0 0 0 10px;
-  }
-
-  .card p {
-    padding: 10px;
+  @media (max-width: 1200px) {
+    .cardsContainer{
+        grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   @media (max-width: 1000px) {
     .cardsContainer{
         grid-template-columns: repeat(3, 1fr);
+        img {
+          object-fit: contain;
+        }
     }
   }
   

@@ -50,7 +50,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // postUser()
+    postUser()
     isNewUser()
   }
 
@@ -65,6 +65,10 @@ const Register = () => {
             <label>
                 email:<br />
                 <input value={user.email} onChange={(e) => setUser({...user, email: e.target.value})} type="email" placeholder="Input your email here..."  required />
+            </label>
+            <label>
+                password:<br />
+                <input type="password" placeholder="Input your password here..." required />
             </label>
             <button type="submit">Create user</button>
         </form>

@@ -23,3 +23,13 @@ header a h1 {
     font-size: 1em;
     color: chocolate;
 }
+
+@media (max-width: 600px) {
+    header h1 {
+        width: min-content;
+    }
+    .headerNav{
+        display: flex;
+        flex-direction: column;
+    }
+  }

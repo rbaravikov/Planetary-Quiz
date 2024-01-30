@@ -69,27 +69,32 @@ const NewQuizForm = () => {
 
   const ShowButton = () => {
     if (newQuiz.name && newQuiz.subject && newQuiz.img) { return (
-      <label >
-        <h1>
+      <>
+        <h3>
       And thats it your brand new quiz is ready, all thats left is to add questions to it :)
-        </h1>
-      <button>Lets go!</button>
-      </label>
+        </h3>
+      <button onClick={handleSubmit} >Lets go!</button>
+      </>
       )}
   }
   
   return (
-    <form className="newQuizForm" onSubmit={handleSubmit}>
+    <form className="quizForm">
         <h1>Lets make our own quiz its simle!</h1>
         <label>
-            <h3>First we enter quiz name:</h3><br />
+            <h4>First we enter quiz name:</h4>
             <input name="name" type="text" placeholder="Enter name for your quiz here..." onInput={addQuiz} required />
         </label>
         <label>
-            Next, lets deside what it is about:<br />
+            <h4>Next, lets deside what it is about:</h4>
             <input name="subject" type="text" placeholder="Ex. Popular cat fur patterns" onInput={addQuiz} required />
         </label>
-        <ShowButton />
+        <div className={newQuiz.name && newQuiz.subject ? "visible" : "hidden"}>
+        <h3>
+      And thats it your brand new quiz is ready, all thats left is to add questions to it :)
+        </h3>
+      <button onClick={handleSubmit} >Lets go!</button>
+      </div>
         </form>
   )
 }

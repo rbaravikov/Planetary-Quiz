@@ -13,16 +13,22 @@ const MainPage = () => {
         visible: {
             opacity: 1,
             transition: {
-            delayChildren: 0.3,
-            staggerChildren: 0.3
+               delayChildren: 0.3,
+                staggerChildren: 0.3
+            }
         }
     }
-    }
+
     const card = {
         hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1
+        },
+        exit: {
+            y: 20,
+            opacity: 0,
+            transition: { duration: 0.5 }
         }
     }
 
@@ -55,16 +61,18 @@ const MainPage = () => {
 
     return (
         <>
-        <label>
-            Find quiz <br/>
+        <label className='filter'>
+            <h2>Find quiz</h2>
             <input placeholder='Search quiz by name' onChange={(e) => useFilter(e)}/>
         </label>
         <motion.div className='cardsContainer' variants={div} initial="hidden" animate="visible">
             {filteredArray && filteredArray.map((quiz) => (
-                <motion.div variants={card} initial='hidden' animate='visible' onClick={() =>handleClick(quiz.id)} className="card" key={quiz.id}>
-                    <img src={quiz.img} alt="quiz" />
+                <motion.div variants={card} initial='hidden' animate='visible' exit='exit' onClick={() =>handleClick(quiz.id)} className="card" key={quiz.id}>
+                    <img src={quiz.img} alt="quiz" onError={(e) => {
+                e.target.src = "/src/images/questionmark.png"
+            }}/>
                     <h2>{quiz.name}</h2>
-                    <h3>{quiz.subject}</h3>
+                    <h4>{quiz.subject}</h4>
                     <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
                 </motion.div>
             ) )}

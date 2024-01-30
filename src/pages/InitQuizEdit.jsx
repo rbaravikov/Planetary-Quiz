@@ -60,14 +60,16 @@ const InitQuizEdit = () => {
   return (
     <form className="quizForm" onSubmit={handleSubmit}>
         <h1>Set some basic parameters</h1>
-        <br />
         <label>
-            You can paste URL to your picture here, or leave it blank, for default image)<br/>
+            <h4>
+                You can paste URL to your picture here, or leave it blank, for default image
+            </h4>
             <input onChange={(e) => setImgUrl(e.target.value)} value={imgUrl} type="text" placeholder="if blank, default img will be used"/>
         </label>
-        <br />
         <label >
-            Next, lets decide how many seconds you want to give for each question
+            <h4>
+                Next, lets decide how many seconds you want to give for each question
+            </h4>
             <input value={timeLimit} onChange={(e) => setTimeLimit(e.target.value)} type="number" min={1} max={3600} placeholder="(By default it is 60 seconds)"/>
         </label>
         <button>Go to questions</button>

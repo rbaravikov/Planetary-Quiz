@@ -37,7 +37,7 @@ function App() {
             <Route path="/register/" element={<Register setUserName={setUserName}/>} />
             <Route path="/mainpage/" element={<MainPage />} />
             <Route path="/quizpage/:id" element={<QuizPage />} />
-            <Route path={"/userpage/:user"} element={<UserPage userName={userName} setUserName={setUserName} />} />
+            <Route path={"/userpage/:user"} element={<UserPage userName={userName} />} />
             <Route path={"/createquiz"} element={<CreateQuizForm userName={userName} /> } />
             <Route path={"/initquizedit/:quizid"} element={<InitQuizEdit userName={userName} /> } />
             <Route path={"/editquiz/:quizid"} element={<QuizEditPage userName={userName} /> } />

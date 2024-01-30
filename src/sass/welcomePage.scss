@@ -3,30 +3,33 @@
     padding-top: 20px;
     margin: auto;
     align-items: center;
+    
+    .greeting {
+        background: rgba(255, 240, 240, 0.556);
+        border-radius: 12px;
+        padding: 20px;
+        width: 600px;
+        margin: auto;
+        
+        .img{
+            width: 50px;
+            height: 50px;
+            background-image: url('../images/questionmark.png');
+            background-size: contain;
+            margin: -25px -25px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1.5em;
+            text-align: center;
+        }
+    }
 }
 
-.home div.greeting {
-    background: rgba(255, 240, 240, 0.556);
-    border-radius: 12px;
-    padding: 20px;
-    width: 600px;
-    margin: auto;
-}
 
-.home div.greeting .img{
-    width: 50px;
-    height: 50px;
-    background-image: url('../images/questionmark.png');
-    background-size: contain;
-    margin: -25px -25px;
-    margin-bottom: 10px;
-}
-
-div.greeting h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-div.home p {
-    font-size: 1.5em;
-    text-align: center;
-}

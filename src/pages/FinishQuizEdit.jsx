@@ -52,12 +52,12 @@ const FinishQuizEdit = () => {
   return (
     <form className="quizForm" onSubmit={handleSubmit}>
         <h1>Finaly, lets add message to those that solve Your quiz!</h1>
-        <h2>This message will be shown if score is not perfect:</h2>
         <label>
+        <h2>This message will be shown if score is not perfect:</h2>
             <input value={tryMsg ?? ''} onChange={(e) => setTryMsg(e.target.value)} type="text" placeholder="ex. Better luck next time"/>
         </label>
         <label>
-            <h2>While this message will be shown only to those who get perfect score:</h2>
+            <h2>Add a message for perfect scorers</h2>
             <input value={victoryMsg ?? ''} onChange={(e) => setVictoryMsg(e.target.value)} type="text" placeholder="ex. Congratulations, you got a perfect score!"/>
         </label>
         <button>Activate my quiz</button>

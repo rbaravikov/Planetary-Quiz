@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 
 const UserPage = () => {
-  const { userName, setUserName } = useContext(AppContext)
+  const { userName } = useContext(AppContext)
   const [userQuizData, setUserQuizData] = useState()
   const navigate = useNavigate()
 
@@ -21,13 +21,6 @@ const UserPage = () => {
   useEffect(() => {
       fetchData()
   }, [userName])
-
-  
-  const handleClick = () => {
-    localStorage.setItem('user', '')  
-    setUserName('')
-    navigate('/')
-  }
 
   const openQuiz = (id) => {
     navigate(`/initquizedit/${id}`)
@@ -55,21 +48,21 @@ const UserPage = () => {
 
   return (
     <>
-     <div className="cardsContainer">
-      {userQuizData && userQuizData.map((quiz) => (
-        <div className="card" key={quiz.id}>
-          <div onClick={() => openQuiz(quiz.id)} className="card-content">
-            <img src={quiz.img} alt="planet" />
-            <h2>{quiz.name}</h2>
-            <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
+      <div className="cardsContainer">
+        {userQuizData && userQuizData.map((quiz) => (
+          <div className="card" key={quiz.id}>
+            <div onClick={() => openQuiz(quiz.id)}>
+              <img src={quiz.img} alt="planet" />
+              <h2>{quiz.name}</h2>
+              <h4>{quiz.subject}</h4>
+              <p>My Top Score: 0 out of {quiz.questions && quiz.questions.length}</p>
+            </div>
+            <div onClick={() => handleDelete(quiz)} className="deleteQuiz">
+              <FaTrashCan />
+            </div>
           </div>
-          <div onClick={() => handleDelete(quiz)} className="deleteQuiz">
-            <FaTrashCan />
-          </div>
-        </div>
-      ))}
-        </div>
-    <button onClick={handleClick} >Log Out</button>
+        ))}
+      </div>
     </>
   )
 }

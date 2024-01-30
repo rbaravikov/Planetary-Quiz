@@ -17,8 +17,6 @@ const QuizEditPage = () => {
     const navigate = useNavigate()
     const navigateTo = `/editquizfin/${quizid}`
 
-    // Atsisiunčiam klausimyno duomenis ir išsaugome quizData
-    
     useEffect(() => {
         FetchQuizData(setQuizData, quizid)
     }, [])
